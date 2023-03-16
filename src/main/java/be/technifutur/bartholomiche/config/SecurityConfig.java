@@ -40,6 +40,10 @@ public class SecurityConfig {
                     .requestMatchers("/panier/*").authenticated()
                     .requestMatchers("/shipping/*").authenticated()
                     .requestMatchers("/plane{id:[0-9]+}/patch").hasAuthority("ROLE_ADMIN")
+                    .requestMatchers("/security/test/permit-all").permitAll()
+                    .requestMatchers("/security/test/connected").authenticated()
+                    .requestMatchers("/security/test/permit-all").permitAll()
+                    .requestMatchers("/security/test/connected").authenticated()
                     .requestMatchers(HttpMethod.POST).hasRole("ADMIN")
                     .requestMatchers(HttpMethod.GET, "/plane/{id:[0-9]+}").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                     .anyRequest().permitAll();

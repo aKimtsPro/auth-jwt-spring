@@ -16,3 +16,8 @@ application:
         headerKey: "Authorization"
 custom:
     prop: "salut"
+
+# configuration du chemin de base pour swagger
+springdoc:
+    swagger-ui:
+        path: /swagger

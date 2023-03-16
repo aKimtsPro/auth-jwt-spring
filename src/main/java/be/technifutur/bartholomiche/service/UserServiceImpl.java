@@ -35,8 +35,12 @@ public UserServiceImpl(PasswordEncoder passwordEncoder, UserRepository userRepos
     public void create(UserInsertForm form) {
        User user = form.toEntity();
        Panier panier = new Panier();
-       this.userRepository.save(user);
-       panier.setUser(this.userRepository.findById(user.getId()).get());
+//       this.userRepository.save(user);
+//       panier.setUser(this.userRepository.findById(user.getId()).get());
+    // plus efficace de cette manière:
+       user = this.userRepository.save(user);
+       panier.setUser(user);
+
        user.setPassword(passwordEncoder.encode(user.getPassword()));
        userRepository.save(user);
         

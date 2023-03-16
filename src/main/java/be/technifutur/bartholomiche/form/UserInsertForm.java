@@ -19,7 +19,6 @@ public class UserInsertForm {
     @NotNull
     private String password;
 
-    private Panier panier; //mauvaise pratique -> entité dans un form
     
     public User toEntity(){
         User entity = new User();
